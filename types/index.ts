@@ -1,4 +1,4 @@
-import { Route } from 'vue-router'
+import { Route, RawLocation } from 'vue-router'
 interface VPermission {
 
 }
@@ -9,10 +9,10 @@ declare class RoutingControlClass {
 export interface RoutingControlClassOptions {
     //权限数据
     options:string[];
-    router:object;
-    to:object;
-    from:object;
-    next:object;
+    router:Route[];
+    to:Route;
+    from:Route;
+    next:(to?: RawLocation | false | ((vm: V) => any) | void) => void;
     page:string;
 }
 
