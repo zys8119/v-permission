@@ -10,7 +10,7 @@ const plugin = {
                 if(Object.prototype.toString.call(mapData) == "[object String]" &&  mapData != keyName){
                     return;
                 }
-                if(Object.prototype.toString.call(mapData) == "[object Object]" &&  !mapData[keyName]){
+                if(Object.prototype.toString.call(mapData) == "[object Boolean]" &&  !mapData){
                     return;
                 }
                 setTimeout(()=>{
