@@ -44,29 +44,20 @@ const plugin = {
 };
 
 export class RoutingControl {
-    constructor({options,router,to, from, next,page}){
-        let routerPublicAll = this.getRouter(router.options.routes);
+    constructor({options,store,router,to, from, next,page}){
         return new Promise((resolve) => {
-            if(routerPublicAll.some(e=>e == to.path) || options.some(e=>e == to.path)){
-                resolve();
-            }else {
-                next(page);
-            }
-        });
-    }
-
-    getRouter(router,routerAll = []){
-        router.forEach(e=>{
             try {
-                if(e.meta && e.meta.isPublic){
-                    routerAll.push(e.path);
-                }
+               if(store.state.airforce.layout.isPublic){
+                   resolve();
+                   return;
+               }
             }catch (e) {}
-            if(e.children && e.children.length > 0){
-                this.getRouter(e.children,routerAll)
+            if(options.some(e=>e == to.path)){
+                resolve();
+                return;
             }
+            next(page);
         });
-        return routerAll;
     }
 }
 
