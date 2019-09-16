@@ -11,14 +11,15 @@ declare class RoutingControlClass {
     constructor(option:RoutingControlClassOptions);
     getRouter():void
 }
+
 export interface RoutingControlClassOptions {
     //权限数据
-    options:string[];
-    router:Route[];
-    to:Route;
-    from:Route;
-    next:(to?: RawLocation | false | ((vm: V) => any) | void) => void;
-    page:string;
+    options:string[];//允许访问的路由
+    router:Route[];//router实例化对象
+    to:Route;//
+    from:Route;//
+    next:(to?: RawLocation | false | ((vm: object) => any) | void) => void;
+    page:string;//不被允许访问的路由将被从定向至此路由
 }
 
 export interface RoutingControl {

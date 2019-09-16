@@ -1,6 +1,6 @@
 {
   "name": "v-permission",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "vue 权限控制",
   "main": "src/index.js",
   "typings": "types/index.ts",
